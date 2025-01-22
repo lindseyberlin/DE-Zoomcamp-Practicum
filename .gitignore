@@ -3,6 +3,8 @@
 *.csv.gz
 *.parquet
 
+# ignoring creds
+keys/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
