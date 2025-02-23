@@ -72,11 +72,11 @@ x-airflow-common:
     # The following line can be used to set a custom config file, stored in the local config folder
     # If you want to use it, outcomment it and replace airflow.cfg with the name of your config file
     # AIRFLOW_CONFIG: '/opt/airflow/config/airflow.cfg'
-    GOOGLE_APPLICATION_CREDENTIALS: /.google/credentials/google_credentials.json
-    AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT: 'google-cloud-platform://?extra__google_cloud_platform__key_path=/.google/credentials/google_credentials.json'
-    # TODO: Please change GCP_PROJECT_ID & GCP_GCS_BUCKET, as per your config
-    GCP_PROJECT_ID: 'carbon-pride-446318-e0'
-    GCP_GCS_BUCKET: 'carbon-pride-446318-terra-bucket'
+    # GOOGLE_APPLICATION_CREDENTIALS: /.google/credentials/google_credentials.json
+    # AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT: 'google-cloud-platform://?extra__google_cloud_platform__key_path=/.google/credentials/google_credentials.json'
+    # # TODO: Please change GCP_PROJECT_ID & GCP_GCS_BUCKET, as per your config
+    # GCP_PROJECT_ID: 'carbon-pride-446318-e0'
+    # GCP_GCS_BUCKET: 'carbon-pride-446318-terra-bucket'
   volumes:
     - ${AIRFLOW_PROJ_DIR:-.}/dags:/opt/airflow/dags
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
@@ -253,6 +253,7 @@ services:
     user: "0:0"
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}:/sources
+      - ./google:/opt/airflow/google:ro
 
   airflow-cli:
     <<: *airflow-common
