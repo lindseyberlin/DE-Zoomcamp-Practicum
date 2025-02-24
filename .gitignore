@@ -7,6 +7,7 @@
 keys/*
 google_credentials.json
 kestra_gcp_creds.json
+.env_encoded
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
