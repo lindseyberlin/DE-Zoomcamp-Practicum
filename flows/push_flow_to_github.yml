@@ -1,0 +1,13 @@
+id: push_flow_to_github
+namespace: null
+
+tasks:
+  - id: commit_and_push
+    type: io.kestra.plugin.git.PushFlows
+    username: lindseyberlin
+    password: "{{ secret('GITHUB_ACCESS_TOKEN') }}"
+    url: https://github.com/lindseyberlin/DE-Zoomcamp-Practicum
+    branch: develop
+    gitDirectory: flows
+    commitMessage: "Update flow documentation direct from Kestra"
+    dryRun: false
