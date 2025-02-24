@@ -21,6 +21,8 @@ services:
 
   kestra:
     image: kestra/kestra:latest
+    env_file:
+      - .env_encoded
     pull_policy: always
     user: "root"
     command: server standalone
